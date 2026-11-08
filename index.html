@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="RZPQRBNOOXEDyjpoAdVWiSzs-OXNNAmC4DPM78Cai-w" />
 <title>Navidu Dilhan · Premium Web Designer & UI/UX Architect</title>
 <meta name="description" content="Navidu Dilhan — Premium Web Designer & UI/UX Architect from Sri Lanka. High-converting, fast, and stunning websites for global brands since 2022.">
 <meta name="author" content="Navidu Dilhan">
@@ -19,9 +20,14 @@
 <meta name="twitter:description" content="Premium web design & UI/UX from Sri Lanka.">
 <meta name="twitter:image" content="https://navidudilhan.com/og-cover.jpg">
 <meta name="theme-color" content="#08060f">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="format-detection" content="telephone=no">
 <link rel="canonical" href="https://navidudilhan.com/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='56' font-weight='900' text-anchor='middle' fill='%2308060f'%3EN%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://drive.google.com">
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -120,41 +126,13 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 50%, #000, transparent 80%);
 }
 
-/* ============ CUSTOM CURSOR ============ */
-@media(pointer:fine){
-  .cursor-dot,.cursor-ring{
-    position:fixed;top:0;left:0;pointer-events:none;z-index:9998;
-    border-radius:50%;transform:translate(-50%,-50%);
-    will-change:transform;
-  }
-  .cursor-dot{width:6px;height:6px;background:var(--cyan);transition:background .3s,width .3s,height .3s}
-  .cursor-ring{width:34px;height:34px;border:1.5px solid rgba(139,92,246,.55);transition:background .3s,border-color .3s,width .3s,height .3s}
-  .cursor-ring.hover{width:52px;height:52px;background:rgba(139,92,246,.12);border-color:var(--violet-light)}
-  body{cursor:none}
-  a,button,input,textarea{cursor:none}
+/* ============ INTERACTIVE HOVER STATES ============ */
+if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
+  document.querySelectorAll('a, button, .pf-item, .pkg, .svc, .ach-card, .why-card').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('pointer-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('pointer-hover'));
+  });
 }
-
-/* ============ SCROLL PROGRESS ============ */
-.scroll-progress{
-  position:fixed;top:0;left:0;height:2px;width:0;
-  background:var(--grad);z-index:9997;transition:width .1s;
-  box-shadow:0 0 10px var(--glow-violet);
-}
-
-/* ============ BUTTONS ============ */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:15px 32px;border-radius:50px;font-weight:600;font-size:14px;
-  letter-spacing:.3px;transition:all .4s cubic-bezier(.16,1,.3,1);
-  position:relative;overflow:hidden;white-space:nowrap;
-}
-.btn-primary{background:var(--grad);color:#08060f;box-shadow:0 10px 30px var(--glow-violet)}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(139,92,246,.5)}
-.btn-outline{
-  background:rgba(139,92,246,.05);color:var(--violet-light);
-  border:1.5px solid rgba(139,92,246,.35);backdrop-filter:blur(10px);
-}
-.btn-outline:hover{background:var(--grad);color:#08060f;border-color:transparent;transform:translateY(-3px);box-shadow:0 12px 30px var(--glow-violet)}
 
 /* ============ NAV ============ */
 nav{
@@ -859,12 +837,97 @@ footer::before{
 }
 @media(pointer:coarse){
   .cursor-dot,.cursor-ring{display:none}
-  body{cursor:auto}
-  a,button,input,textarea{cursor:auto}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+
+/* ============ PREMIUM CONVERSION + ACCESSIBILITY UPGRADE ============ */
+:root{--surface-glass:rgba(17,14,35,.82)}
+::selection{background:#8b5cf6;color:#fff}
+.btn:focus-visible,.filter-tabs button:focus-visible,.faq-q:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+input,textarea,select{color-scheme:dark}
+.contact-form select{
+  width:100%;padding:14px 18px;background:rgba(8,6,15,.7);border:1px solid var(--border);
+  border-radius:12px;color:#fff;font-size:14px;transition:.3s;font-family:inherit;
+}
+.contact-form select:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px rgba(139,92,246,.12)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-card{padding:28px;border:1px solid var(--border);border-radius:22px;background:linear-gradient(145deg,rgba(19,16,40,.9),rgba(26,21,56,.72));transition:.35s}
+.why-card:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.35);box-shadow:0 20px 45px rgba(0,0,0,.3)}
+.why-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:rgba(139,92,246,.13);color:var(--cyan);font-size:19px;margin-bottom:18px}
+.why-card h3{font-size:17px;margin-bottom:9px}.why-card p{font-size:13.5px;color:var(--muted);line-height:1.7}
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.case-card{padding:28px;border-radius:22px;border:1px solid var(--border);background:linear-gradient(145deg,rgba(19,16,40,.95),rgba(26,21,56,.8))}
+.case-card .case-kicker{font-size:11px;color:var(--cyan);font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.case-card h3{font-size:20px;margin-bottom:10px}.case-card p{font-size:13.5px;color:var(--muted);margin-bottom:16px}
+.case-meta{display:flex;flex-wrap:wrap;gap:8px}.case-meta span{font-size:11px;padding:6px 10px;border:1px solid var(--border);border-radius:30px;color:#d8d3ed}
+.inquiry-note{font-size:12px;color:var(--muted);margin:12px 0 0;line-height:1.6}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-form .field small{display:block;color:var(--muted);font-size:11px;margin-top:6px}
+.footer-contact-card{padding:16px;border:1px solid var(--border);border-radius:14px;background:rgba(139,92,246,.06)}
+.footer-contact-card a{color:var(--cyan);font-weight:700;font-size:13px}
+@media(max-width:768px){.why-grid,.case-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.why-card,.case-card{padding:23px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee-track{animation:none}.hero-bg::before,.hero-bg::after,.float-card,.wa-float{animation:none!important}.reveal{opacity:1;transform:none}}
+
+
+/* ============ SIGNATURE TECH WORKBENCH ============ */
+#tech{position:relative;isolation:isolate;overflow:hidden}
+#tech::before{content:"";position:absolute;width:760px;height:760px;left:-390px;top:10%;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.13),transparent 68%);filter:blur(12px);pointer-events:none;z-index:-1}
+#tech::after{content:"";position:absolute;width:650px;height:650px;right:-360px;bottom:-15%;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,.10),transparent 68%);filter:blur(14px);pointer-events:none;z-index:-1}
+.tech-showcase{display:grid;grid-template-columns:minmax(280px,.9fr) 1.1fr;align-items:center;gap:42px;min-height:360px;margin:4px 0 42px;padding:30px 38px;border:1px solid rgba(167,139,250,.17);border-radius:30px;background:linear-gradient(115deg,rgba(20,15,43,.92),rgba(10,17,32,.84));box-shadow:0 24px 80px rgba(0,0,0,.28);position:relative;overflow:hidden}
+.tech-showcase::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.035) 48%,transparent 70%);transform:translateX(-100%);animation:workbenchShine 8s ease-in-out infinite;pointer-events:none}
+@keyframes workbenchShine{0%,48%{transform:translateX(-100%)}72%,100%{transform:translateX(100%)}}
+.tech-orbit{width:min(100%,330px);aspect-ratio:1;position:relative;margin:auto;display:grid;place-items:center;filter:drop-shadow(0 0 35px rgba(139,92,246,.16))}
+.orbit{position:absolute;border:1px solid rgba(167,139,250,.24);border-radius:50%;inset:8%;animation:orbitSpin 24s linear infinite}
+.orbit-two{inset:19%;border-color:rgba(34,211,238,.23);animation-duration:18s;animation-direction:reverse}
+.orbit-three{inset:30%;border-style:dashed;border-color:rgba(167,139,250,.24);animation-duration:32s}
+@keyframes orbitSpin{to{transform:rotate(360deg)}}
+.orbit-core{width:94px;height:94px;border-radius:28px;display:grid;place-items:center;font-size:34px;color:#fff;background:linear-gradient(145deg,#8b5cf6,#22d3ee);box-shadow:0 0 0 12px rgba(139,92,246,.08),0 0 65px rgba(139,92,246,.4);animation:corePulse 4s ease-in-out infinite;z-index:2}
+@keyframes corePulse{0%,100%{transform:scale(1);box-shadow:0 0 0 12px rgba(139,92,246,.08),0 0 45px rgba(139,92,246,.3)}50%{transform:scale(1.07);box-shadow:0 0 0 20px rgba(34,211,238,.06),0 0 75px rgba(34,211,238,.35)}}
+.orbit-node{position:absolute;width:48px;height:48px;border:1px solid rgba(255,255,255,.13);border-radius:16px;display:grid;place-items:center;font-size:21px;background:rgba(15,12,32,.94);box-shadow:0 12px 28px rgba(0,0,0,.38);z-index:3;animation:nodeFloat 5s ease-in-out infinite}
+.orbit-node i{filter:drop-shadow(0 0 8px currentColor)}
+.node-a{top:4%;left:40%;color:#e34f26}.node-b{right:5%;top:34%;color:#f7df1e;animation-delay:-1s}.node-c{right:18%;bottom:7%;color:#61dafb;animation-delay:-2s}.node-d{left:17%;bottom:8%;color:#f24e1e;animation-delay:-3s}.node-e{left:3%;top:34%;color:#1572b6;animation-delay:-4s}.node-f{top:18%;right:17%;color:#fff;animation-delay:-2.5s}
+@keyframes nodeFloat{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -9px;rotate:5deg}}
+.tech-live{display:inline-flex;align-items:center;gap:9px;color:var(--cyan);font-size:10px;font-weight:800;letter-spacing:2px;margin-bottom:18px}
+.tech-live>span{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 5px rgba(74,222,128,.12);animation:liveBlink 1.8s infinite}
+@keyframes liveBlink{50%{box-shadow:0 0 0 9px rgba(74,222,128,0)}}
+.tech-intro h3{font:700 clamp(27px,3.5vw,42px)/1.14 'Space Grotesk',sans-serif;letter-spacing:-1.4px;margin-bottom:16px;max-width:540px}
+.tech-intro>p{max-width:540px;color:var(--muted);font-size:14px;line-height:1.9}
+.tech-principles{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.tech-principles span{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--border);border-radius:30px;background:rgba(255,255,255,.025);font-size:11px;color:#ddd7f2}
+.tech-principles i{color:var(--cyan)}
+.tech-filterbar{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:0 0 24px}
+.tech-filter{border:1px solid rgba(167,139,250,.17);background:rgba(19,16,40,.75);color:var(--muted);padding:10px 17px;border-radius:30px;font:600 12px 'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:.25s}
+.tech-filter:hover,.tech-filter.active{color:#fff;border-color:rgba(34,211,238,.45);background:linear-gradient(120deg,rgba(139,92,246,.23),rgba(34,211,238,.12));box-shadow:0 8px 24px rgba(34,211,238,.08)}
+.tech-filter b{margin-left:6px;color:var(--cyan);font-size:10px}
+.tech-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.tech-item{position:relative;overflow:hidden;min-height:166px;padding:20px 16px 18px;text-align:left;border-radius:19px;display:flex;flex-direction:column;align-items:flex-start;isolation:isolate;transition:transform .45s cubic-bezier(.16,1,.3,1),border-color .35s,box-shadow .35s,opacity .25s}
+.tech-item::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(139,92,246,.13),transparent 52%,rgba(34,211,238,.08));opacity:0;transition:opacity .4s;z-index:-1}
+.tech-item:hover{transform:translateY(-8px) scale(1.015);border-color:rgba(34,211,238,.38);box-shadow:0 22px 44px rgba(0,0,0,.35),0 0 25px rgba(139,92,246,.08)}
+.tech-item:hover::before{opacity:1}
+.tech-item i{font-size:29px;margin:12px 0 10px;transition:transform .45s cubic-bezier(.16,1,.3,1),filter .4s}
+.tech-item:hover i{transform:translateY(-3px) scale(1.18) rotate(-5deg);filter:drop-shadow(0 0 12px currentColor)}
+.tech-item strong{font-size:13px;line-height:1.4;color:var(--text);font-weight:800}
+.tech-item small{font-size:10px;color:var(--muted);margin-top:5px;line-height:1.5}
+.tech-index{font-size:8px;letter-spacing:1.5px;color:rgba(189,179,222,.55);font-weight:800}
+.tech-card-glow{position:absolute;width:90px;height:90px;border-radius:50%;right:-40px;bottom:-50px;background:rgba(139,92,246,.18);filter:blur(20px);transition:all .5s;z-index:-1}
+.tech-item:hover .tech-card-glow{transform:scale(2);background:rgba(34,211,238,.2)}
+.tech-item.is-hidden{display:none}
+.tech-item.tech-filter-enter{animation:techCardEnter .42s cubic-bezier(.16,1,.3,1) both}
+@keyframes techCardEnter{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.tech-bottomline{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:22px 2px 46px;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);color:var(--muted);font-size:10px;letter-spacing:1.2px;font-weight:700}
+.tech-bottomline span:first-child{letter-spacing:0;font-size:11px}.tech-bottomline i{color:#4ade80;margin-right:7px}.tech-bottomline b{color:var(--cyan);padding:0 4px}
+.tech-capabilities{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tech-cap{padding:25px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,rgba(19,16,40,.88),rgba(14,12,29,.8));transition:transform .35s,border-color .35s,box-shadow .35s}
+.tech-cap:hover{transform:translateY(-6px);border-color:rgba(139,92,246,.35);box-shadow:0 18px 40px rgba(0,0,0,.24)}
+.cap-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.cap-top span{font:700 12px 'Space Grotesk';color:var(--cyan);letter-spacing:1px}.cap-top i{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:rgba(139,92,246,.14);color:var(--violet-light);font-size:17px}
+.tech-cap h3{font:700 18px 'Space Grotesk';margin-bottom:9px}.tech-cap p{font-size:12px;line-height:1.8;color:var(--muted);min-height:66px}
+.cap-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}.cap-tags span{font-size:9px;padding:6px 9px;border-radius:30px;background:rgba(34,211,238,.06);border:1px solid rgba(34,211,238,.12);color:#b9eff5}
+@media(max-width:900px){.tech-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.tech-showcase{gap:20px;padding:26px}.tech-capabilities{gap:12px}.tech-cap{padding:20px}}
+@media(max-width:650px){.tech-showcase{grid-template-columns:1fr;padding:22px 18px;gap:18px}.tech-orbit{width:min(78vw,270px);grid-row:2}.tech-intro{text-align:center}.tech-principles{justify-content:center}.tech-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tech-item{min-height:152px;padding:16px 13px}.tech-capabilities{grid-template-columns:1fr}.tech-cap p{min-height:0}.tech-bottomline{align-items:flex-start;flex-direction:column}.tech-filter{padding:9px 13px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.tech-showcase::before,.orbit,.orbit-core,.orbit-node,.tech-live>span{animation:none!important}.tech-item,.tech-cap{transition:none!important}}
+
 </style>
 <noscript>
 <style>
@@ -877,10 +940,6 @@ footer::before{
 
 <!-- SKIP LINK -->
 <a href="#home" class="skip-link">Skip to content</a>
-
-<!-- CURSOR -->
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
 
 <!-- SCROLL PROGRESS -->
 <div class="scroll-progress"></div>
@@ -915,7 +974,7 @@ footer::before{
       <div class="hero-badge"><span class="dot"></span> Available for new projects</div>
       <h1>Crafting <span class="highlight">Elite Digital</span> Experiences</h1>
       <div class="hero-sub">Premium Web Design &amp; <strong>UI/UX Architecture</strong></div>
-      <p class="hero-tagline">Turning visionary ideas into high-converting digital realities — since 2022, trusted by brands worldwide.</p>
+      <p class="hero-tagline">I design and build modern, responsive websites that help businesses look credible, communicate clearly, and turn visitors into enquiries.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary"><i class="fas fa-rocket"></i> Start a Project</a>
         <a href="#portfolio" class="btn btn-outline"><i class="fas fa-eye"></i> View Work</a>
@@ -923,7 +982,7 @@ footer::before{
       <div class="hero-stats">
         <div><h3 data-count="25" data-suffix="+">0</h3><p>Projects</p></div>
         <div><h3 data-count="12" data-suffix="+">0</h3><p>Clients</p></div>
-        <div><h3 data-count="100" data-suffix="%">0</h3><p>Retention</p></div>
+        <div><h3>Custom</h3><p>Made for Your Brand</p></div>
       </div>
     </div>
     <div class="hero-visual">
@@ -937,7 +996,7 @@ footer::before{
              onerror="imageFallback(this,'Navidu Dilhan')">
       </div>
       <div class="float-card f1"><i class="fas fa-award"></i><div><h4>Top Rated</h4><p>UI/UX &amp; Web Design</p></div></div>
-      <div class="float-card f2"><i class="fas fa-bolt"></i><div><h4>100/100</h4><p>Performance</p></div></div>
+      <div class="float-card f2"><i class="fas fa-bolt"></i><div><h4>Performance</h4><p>Built for speed</p></div></div>
     </div>
   </div>
 </section>
@@ -1028,6 +1087,25 @@ footer::before{
   </div>
 </section>
 
+<!-- WHY CHOOSE ME -->
+<section id="why" class="section-pattern">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">The Difference</div>
+      <h2 class="section-title">More Than Just a <span class="highlight">Website</span></h2>
+      <p class="section-sub">A thoughtful design and build process focused on your goals, your customers, and the details that make a brand feel trustworthy.</p>
+    </div>
+    <div class="why-grid">
+      <article class="why-card reveal"><div class="why-icon"><i class="fas fa-fingerprint"></i></div><h3>Made for Your Brand</h3><p>No one-size-fits-all templates. The visual direction, layout, and content structure are shaped around your business and audience.</p></article>
+      <article class="why-card reveal"><div class="why-icon"><i class="fas fa-mobile-screen-button"></i></div><h3>Responsive by Design</h3><p>Layouts are planned for phones, tablets, and desktops so visitors can use your website comfortably on the device they prefer.</p></article>
+      <article class="why-card reveal"><div class="why-icon"><i class="fas fa-gauge-high"></i></div><h3>Speed &amp; Usability</h3><p>Clean front-end implementation, optimized assets, clear navigation, and practical accessibility are part of the build.</p></article>
+      <article class="why-card reveal"><div class="why-icon"><i class="fas fa-comments"></i></div><h3>Direct Communication</h3><p>Discuss your requirements directly, get clear updates, and understand what is included before work begins.</p></article>
+      <article class="why-card reveal"><div class="why-icon"><i class="fas fa-magnifying-glass-chart"></i></div><h3>Search-Ready Foundations</h3><p>Semantic structure, page metadata, descriptive content, and technical basics help search engines understand your website.</p></article>
+      <article class="why-card reveal"><div class="why-icon"><i class="fas fa-life-ring"></i></div><h3>Launch Guidance</h3><p>Get practical guidance for launch, handover, and the next steps needed to keep your website useful as your business grows.</p></article>
+    </div>
+  </div>
+</section>
+
 <!-- ACHIEVEMENTS -->
 <section id="achievements" class="section-pattern">
   <div class="container">
@@ -1050,8 +1128,8 @@ footer::before{
       </div>
       <div class="ach-card spotlight reveal">
         <div class="ach-icon"><i class="fas fa-heart"></i></div>
-        <div class="num" data-count="100" data-suffix="%">0</div>
-        <div class="lbl">Client Retention</div>
+        <div class="num">Client-first</div>
+        <div class="lbl">Collaborative Approach</div>
       </div>
       <div class="ach-card spotlight reveal">
         <div class="ach-icon"><i class="fas fa-clock"></i></div>
@@ -1060,9 +1138,9 @@ footer::before{
       </div>
       <div class="ach-card highlight spotlight reveal">
         <div class="ach-icon"><i class="fas fa-bolt"></i></div>
-        <div class="num">100/100</div>
-        <div class="lbl">Lighthouse Performance</div>
-        <p class="desc">Every project ships optimized for speed &amp; Core Web Vitals.</p>
+        <div class="num">Fast</div>
+        <div class="lbl">Performance-minded Builds</div>
+        <p class="desc">Performance is considered throughout the build and can be verified with a Lighthouse test after launch.</p>
       </div>
       <div class="ach-card spotlight reveal">
         <div class="ach-icon"><i class="fas fa-calendar"></i></div>
@@ -1081,17 +1159,50 @@ footer::before{
       <h2 class="section-title">Tools of the <span class="highlight">Trade</span></h2>
       <p class="section-sub">Modern, battle-tested technologies powering every build.</p>
     </div>
-    <div class="tech-grid">
-      <div class="tech-item reveal"><i class="fab fa-html5"></i><span>HTML5</span></div>
-      <div class="tech-item reveal"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
-      <div class="tech-item reveal"><i class="fab fa-js"></i><span>JavaScript</span></div>
-      <div class="tech-item reveal"><i class="fab fa-react"></i><span>React</span></div>
-      <div class="tech-item reveal"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-      <div class="tech-item reveal"><i class="fab fa-figma"></i><span>Figma</span></div>
-      <div class="tech-item reveal"><i class="fab fa-git-alt"></i><span>Git</span></div>
-      <div class="tech-item reveal"><i class="fab fa-github"></i><span>GitHub</span></div>
-      <div class="tech-item reveal"><i class="fab fa-npm"></i><span>npm</span></div>
-      <div class="tech-item reveal custom-icon"><i class="fas fa-wind"></i><span>Tailwind</span></div>
+    <div class="tech-showcase">
+      <div class="tech-orbit" aria-hidden="true">
+        <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="orbit orbit-three"></span>
+        <span class="orbit-core"><i class="fas fa-code"></i></span>
+        <span class="orbit-node node-a"><i class="fab fa-html5"></i></span><span class="orbit-node node-b"><i class="fab fa-js"></i></span>
+        <span class="orbit-node node-c"><i class="fab fa-react"></i></span><span class="orbit-node node-d"><i class="fab fa-figma"></i></span>
+        <span class="orbit-node node-e"><i class="fab fa-css3-alt"></i></span><span class="orbit-node node-f"><i class="fab fa-github"></i></span>
+      </div>
+      <div class="tech-intro">
+        <span class="tech-live"><span></span> THE DIGITAL WORKBENCH</span>
+        <h3>Precision tools. <span class="highlight">Better experiences.</span></h3>
+        <p>From the first wireframe to the final line of code, every tool has a purpose: creating digital products that feel polished, work smoothly, and are easy to use.</p>
+        <div class="tech-principles"><span><i class="fas fa-layer-group"></i> Design systems</span><span><i class="fas fa-bolt"></i> Clean development</span><span><i class="fas fa-shield-halved"></i> Quality-first workflow</span></div>
+      </div>
+    </div>
+    <div class="tech-filterbar" role="group" aria-label="Filter tools by category">
+      <button class="tech-filter active" type="button" data-tech-filter="all" aria-pressed="true">All tools <b>16</b></button>
+      <button class="tech-filter" type="button" data-tech-filter="frontend" aria-pressed="false">Frontend</button>
+      <button class="tech-filter" type="button" data-tech-filter="design" aria-pressed="false">Design</button>
+      <button class="tech-filter" type="button" data-tech-filter="workflow" aria-pressed="false">Workflow</button>
+    </div>
+    <div class="tech-grid" id="techGrid">
+      <article class="tech-item reveal" data-tech="frontend"><span class="tech-index">01 / CODE</span><i class="fab fa-html5"></i><strong>HTML5</strong><small>Semantic structure</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="frontend"><span class="tech-index">02 / STYLE</span><i class="fab fa-css3-alt"></i><strong>CSS3</strong><small>Responsive interfaces</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="frontend"><span class="tech-index">03 / LOGIC</span><i class="fab fa-js"></i><strong>JavaScript</strong><small>Interactive experiences</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="frontend"><span class="tech-index">04 / UI</span><i class="fab fa-react"></i><strong>React</strong><small>Component-based UI</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="frontend"><span class="tech-index">05 / SERVER</span><i class="fab fa-node-js"></i><strong>Node.js</strong><small>JavaScript runtime</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal custom-icon" data-tech="frontend"><span class="tech-index">06 / CSS</span><i class="fas fa-wind"></i><strong>Tailwind CSS</strong><small>Utility-first styling</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="design"><span class="tech-index">07 / DESIGN</span><i class="fab fa-figma"></i><strong>Figma</strong><small>UI &amp; prototyping</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="workflow"><span class="tech-index">08 / VERSION</span><i class="fab fa-git-alt"></i><strong>Git</strong><small>Version control</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="workflow"><span class="tech-index">09 / COLLAB</span><i class="fab fa-github"></i><strong>GitHub</strong><small>Code collaboration</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="workflow"><span class="tech-index">10 / PACKAGES</span><i class="fab fa-npm"></i><strong>npm</strong><small>Package management</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="workflow"><span class="tech-index">11 / EDITOR</span><i class="fas fa-code"></i><strong>VS Code</strong><small>Development environment</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="workflow"><span class="tech-index">12 / DEBUG</span><i class="fab fa-chrome"></i><strong>Chrome DevTools</strong><small>Inspect &amp; debug</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="frontend"><span class="tech-index">13 / BUILD</span><i class="fas fa-bolt"></i><strong>Vite</strong><small>Modern build tooling</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="frontend"><span class="tech-index">14 / TYPES</span><i class="fas fa-code-branch"></i><strong>TypeScript</strong><small>Typed JavaScript</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="design"><span class="tech-index">15 / VISUALS</span><i class="fas fa-bezier-curve"></i><strong>Visual Design</strong><small>Layout &amp; composition</small><span class="tech-card-glow"></span></article>
+      <article class="tech-item reveal" data-tech="workflow"><span class="tech-index">16 / QUALITY</span><i class="fas fa-gauge-high"></i><strong>Performance</strong><small>Speed &amp; usability checks</small><span class="tech-card-glow"></span></article>
+    </div>
+    <div class="tech-bottomline"><span><i class="fas fa-circle-check"></i> The right tool for the right job</span><span>DESIGN <b>×</b> DEVELOPMENT <b>×</b> DETAIL</span></div>
+    <div class="tech-capabilities">
+      <article class="tech-cap reveal"><div class="cap-top"><span>01</span><i class="fas fa-pen-ruler"></i></div><h3>Visual Direction</h3><p>Color, typography, spacing, and visual hierarchy are combined into a clear and consistent brand experience.</p><div class="cap-tags"><span>UI design</span><span>Wireframes</span><span>Prototypes</span></div></article>
+      <article class="tech-cap reveal"><div class="cap-top"><span>02</span><i class="fas fa-code"></i></div><h3>Frontend Craft</h3><p>Responsive layouts, reusable components, thoughtful interactions, and maintainable code bring the design to life.</p><div class="cap-tags"><span>Responsive</span><span>Components</span><span>Interactions</span></div></article>
+      <article class="tech-cap reveal"><div class="cap-top"><span>03</span><i class="fas fa-magnifying-glass-chart"></i></div><h3>Launch Quality</h3><p>Before launch, attention goes to page structure, metadata, accessibility basics, image loading, and usability.</p><div class="cap-tags"><span>SEO basics</span><span>Accessibility</span><span>Optimization</span></div></article>
     </div>
   </div>
 </section>
@@ -1184,6 +1295,22 @@ footer::before{
         </div>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- PROJECT APPROACH / CASE STUDIES -->
+<section id="case-studies" class="section-pattern">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Behind the Build</div>
+      <h2 class="section-title">Thoughtful Work. <span class="highlight">Clear Outcomes.</span></h2>
+      <p class="section-sub">A closer look at the thinking behind selected work. Open the live projects above to explore the finished experiences.</p>
+    </div>
+    <div class="case-grid">
+      <article class="case-card reveal"><div class="case-kicker">Business Website · Sri Lanka</div><h3>Ambalantota Block Gal</h3><p>A business-focused online presence designed to make the supplier's offering easier to explore, establish credibility, and give prospective customers a clear path to get in touch.</p><div class="case-meta"><span>Business presence</span><span>Responsive layout</span><span>Enquiry-focused</span></div></article>
+      <article class="case-card reveal"><div class="case-kicker">E-Commerce · Sri Lanka</div><h3>Noxora Sri Lanka</h3><p>A product-led storefront concept with a premium visual direction, clear product presentation, and a shopping experience designed to feel simple and consistent.</p><div class="case-meta"><span>Online store</span><span>Product presentation</span><span>Shopping UX</span></div></article>
+    </div>
+    <p class="inquiry-note" style="text-align:center;margin-top:22px">Project descriptions are concise portfolio summaries. Add verified project screenshots, client-approved testimonials, and measured results when available.</p>
   </div>
 </section>
 
@@ -1319,33 +1446,56 @@ footer::before{
     <div class="section-head reveal">
       <div class="eyebrow">Contact</div>
       <h2 class="section-title">Let's Build <span class="highlight">Together</span></h2>
-      <p class="section-sub">Send your details and receive a response within a few hours.</p>
+      <p class="section-sub">Share a few details about your project and start a direct conversation.</p>
     </div>
     <div class="contact-wrap reveal">
       <div class="contact-form">
         <form id="contactForm" novalidate>
           <div class="field">
             <label for="name">Your Full Name</label>
-            <input type="text" id="name" placeholder="e.g. John Doe" autocomplete="name" required aria-describedby="name-error">
+            <input type="text" id="name" name="name" placeholder="e.g. John Doe" autocomplete="name" required aria-describedby="name-error">
             <span class="error-msg" id="name-error"></span>
           </div>
           <div class="field">
             <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="you@company.com" autocomplete="email" required aria-describedby="email-error">
+            <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required aria-describedby="email-error">
             <span class="error-msg" id="email-error"></span>
           </div>
           <div class="field">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="+94 7X XXX XXXX" autocomplete="tel" required aria-describedby="phone-error">
+            <input type="tel" id="phone" name="phone" placeholder="+94 7X XXX XXXX" autocomplete="tel" required aria-describedby="phone-error">
             <span class="error-msg" id="phone-error"></span>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="service">What do you need?</label>
+              <select id="service" name="service" required>
+                <option value="" selected disabled>Select a service</option>
+                <option>Business Website</option><option>E-Commerce Website</option><option>Portfolio Website</option><option>Landing Page</option><option>UI/UX Design</option><option>Website Redesign</option><option>Other / Not sure</option>
+              </select>
+              <span class="error-msg" id="service-error"></span>
+            </div>
+            <div class="field">
+              <label for="budget">Estimated Budget</label>
+              <select id="budget" name="budget">
+                <option value="Not decided" selected>Not decided yet</option><option>Under $100</option><option>$100–$300</option><option>$300–$700</option><option>$700+</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="timeline">Preferred timeline</label>
+            <select id="timeline" name="timeline">
+              <option value="Flexible" selected>Flexible</option><option>As soon as possible</option><option>Within 2 weeks</option><option>Within a month</option><option>1–3 months</option>
+            </select>
           </div>
           <div class="field">
             <label for="message">Project Details</label>
             <textarea id="message" placeholder="Tell me about your project scope, goals & timeline..." required aria-describedby="message-error"></textarea>
             <span class="error-msg" id="message-error"></span>
           </div>
-          <button type="submit" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
-          <p class="form-note">🔒 Your info is safe. Response within 2–4 hours.</p>
+          <button type="submit" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Send Project Inquiry</button>
+          <p class="form-note">Your details will be placed in a WhatsApp message for you to review and send. Nothing is submitted automatically.</p>
+          <p class="inquiry-note">Prefer email? <a href="mailto:mgrnavindudilhan@gmail.com" style="color:var(--cyan)">mgrnavindudilhan@gmail.com</a></p>
         </form>
       </div>
       <div class="contact-info">
@@ -1401,12 +1551,9 @@ footer::before{
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Newsletter</h4>
-        <p>Get design tips &amp; exclusive offers — no spam, ever.</p>
-        <form class="newsletter-form" id="newsletterForm" novalidate>
-          <input type="email" id="newsletterEmail" placeholder="you@email.com" aria-label="Email address" required>
-          <button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button>
-        </form>
+        <h4>Have a Project?</h4>
+        <p>Tell me what you're planning. I'll help you map out a practical next step.</p>
+        <div class="footer-contact-card"><a href="#contact"><i class="fas fa-paper-plane"></i> Start a project inquiry</a><p style="margin:9px 0 0">Or email directly:</p><a href="mailto:mgrnavindudilhan@gmail.com">mgrnavindudilhan@gmail.com</a></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1489,6 +1636,21 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     hamburger.querySelector('i').className = 'fas fa-bars';
   });
 });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+    navLinks.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.querySelector('i').className = 'fas fa-bars';
+    hamburger.focus();
+  }
+});
+document.addEventListener('click', e => {
+  if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+    navLinks.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.querySelector('i').className = 'fas fa-bars';
+  }
+});
 
 /* ============ SCROLL: progress + nav state + active ============ */
 const progress = document.querySelector('.scroll-progress');
@@ -1500,7 +1662,7 @@ const navSections = [...navItems].map(a => a.getAttribute('href').slice(1));
 window.addEventListener('scroll', () => {
   const st = window.scrollY;
   const dh = document.documentElement.scrollHeight - window.innerHeight;
-  progress.style.width = (st / dh) * 100 + '%';
+  progress.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
   navbar.classList.toggle('scrolled', st > 40);
   backTop.classList.toggle('show', st > 400);
 
@@ -1631,15 +1793,15 @@ startTestiTimer();
 testiWrap.addEventListener('mouseenter', () => clearInterval(tTimer));
 testiWrap.addEventListener('mouseleave', startTestiTimer);
 
-/* ============ CONTACT FORM ============ */
+/* ============ PROJECT INQUIRY FORM ============ */
 const contactForm = document.getElementById('contactForm');
 const fields = {
   name: document.getElementById('name'),
   email: document.getElementById('email'),
   phone: document.getElementById('phone'),
-  message: document.getElementById('message')
+  message: document.getElementById('message'),
+  service: document.getElementById('service')
 };
-
 function setError(key, msg){
   fields[key].classList.add('invalid');
   const err = document.getElementById(key + '-error');
@@ -1650,52 +1812,56 @@ function clearError(key){
   const err = document.getElementById(key + '-error');
   if (err) { err.textContent = ''; err.classList.remove('show'); }
 }
-Object.keys(fields).forEach(k => {
-  fields[k].addEventListener('input', () => clearError(k));
-});
-
+Object.keys(fields).forEach(k => fields[k].addEventListener('input', () => clearError(k)));
+Object.keys(fields).forEach(k => fields[k].addEventListener('change', () => clearError(k)));
 contactForm.addEventListener('submit', function(e) {
   e.preventDefault();
   const name = fields.name.value.trim();
   const email = fields.email.value.trim();
   const phone = fields.phone.value.trim();
   const message = fields.message.value.trim();
-
+  const service = fields.service.value;
+  const budget = document.getElementById('budget').value;
+  const timeline = document.getElementById('timeline').value;
   let hasErr = false;
-
   if (!name) { setError('name', 'Please enter your name'); hasErr = true; }
   if (!email) { setError('email', 'Please enter your email'); hasErr = true; }
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setError('email', 'Please enter a valid email'); hasErr = true; }
   if (!phone) { setError('phone', 'Please enter your phone number'); hasErr = true; }
   else if (!/^\+?[\d\s\-()]{7,20}$/.test(phone)) { setError('phone', 'Please enter a valid phone'); hasErr = true; }
+  if (!service) { setError('service', 'Please choose a service'); hasErr = true; }
   if (!message) { setError('message', 'Please tell me about your project'); hasErr = true; }
-
-  if (hasErr) {
-    showToast('Please fix the errors above', 'error');
-    return;
-  }
-
+  if (hasErr) { showToast('Please check the required fields', 'error'); return; }
   const waNumber = '94729385943';
-  const text = `Hello Navidu 👋\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nProject Details:\n${message}`;
-  showToast('Opening WhatsApp…');
-  setTimeout(() => {
-    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`, '_blank');
-    contactForm.reset();
-  }, 400);
+  const text = `Hello Navidu 👋\n\nI'd like to discuss a project.\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nBudget: ${budget}\nTimeline: ${timeline}\n\nProject Details:\n${message}`;
+  const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+  const opened = window.open(waUrl, '_blank');
+  if (!opened) { window.location.href = waUrl; return; }
+  opened.opener = null;
+  showToast('WhatsApp opened — review and send your inquiry');
 });
 
-/* ============ NEWSLETTER ============ */
-const newsletterForm = document.getElementById('newsletterForm');
-const newsletterEmail = document.getElementById('newsletterEmail');
-newsletterForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const email = newsletterEmail.value.trim();
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    showToast('Please enter a valid email address', 'error');
-    return;
-  }
-  showToast('Thanks for subscribing! 🎉');
-  newsletterForm.reset();
+/* Newsletter signup intentionally omitted until a real mailing-list provider is connected. */
+
+
+/* ============ TECH STACK FILTER + REVEAL ============ */
+const techFilters = document.querySelectorAll('[data-tech-filter]');
+const techCards = document.querySelectorAll('.tech-item[data-tech]');
+techFilters.forEach((filter) => {
+  filter.addEventListener('click', () => {
+    const category = filter.dataset.techFilter;
+    techFilters.forEach((button) => {
+      const active = button === filter;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    techCards.forEach((card) => {
+      const visible = category === 'all' || card.dataset.tech === category;
+      card.classList.toggle('is-hidden', !visible);
+      if (visible) card.classList.add('tech-filter-enter');
+      else card.classList.remove('tech-filter-enter');
+    });
+  });
 });
 
 /* ============ YEAR ============ */
